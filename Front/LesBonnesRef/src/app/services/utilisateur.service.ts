@@ -10,7 +10,8 @@ export class UtilisateurService {
 
   constructor(private http: HttpClient) { }
 
-  ajoutUtilisateur(utilisateur: any) { //méthode creation d'utilisateur
+  ajoutUtilisateur(utilisateur: any) //méthode création d'utilisateur
+  { 
     return this.http.post(this.url, utilisateur);
   }
 
