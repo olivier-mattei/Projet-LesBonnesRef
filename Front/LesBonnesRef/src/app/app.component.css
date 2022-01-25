@@ -1,0 +1,15 @@
+.navbar { background-color: #1a4770; }
+.navbar .navbar-nav .nav-link { color: #fff; }
+.navbar .navbar-nav .nav-link:hover { color: #fbc531; }
+.navbar .navbar-nav .active > .nav-link { color: #fbc531; }
+
+
+
+.navbar{
+      font-family:'Open Sans Condensed', sans-serif;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+  }
+  

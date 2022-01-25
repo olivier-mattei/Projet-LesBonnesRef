@@ -25,7 +25,5 @@ export class ProduitService {
   suprimerProduit(id: any) { //méthode supression de produit
     return this.http.delete(this.url + "/" + id);
   }
-
-
-
+  
 }
