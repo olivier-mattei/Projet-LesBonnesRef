@@ -1,14 +1,17 @@
 package com.LesBonnesRef.demo.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /* import des Liste */
 import java.awt.Image; // ma classe image
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 @Entity
@@ -19,16 +22,18 @@ public class Produit
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//incrementation de l'id
 	private Long id;
 
+	@Column
 	private String nomProduits,detaille,prix,categorie,marque,imageProduit;
+	
+	@Column
 	private int quantite;
 
 	//a regarder plus tard
 	//private List<Image> myArrayList = new ArrayList<Image>(); //tableau d'image
 
-	//clé étrangère avec table Utilisateur
-	private String adresseMail;
-	private int noteVendeur;
-
+	@ManyToOne
+	private Utilisateur utilisateur;//création de ma clé étrengère
+	
 	//constructeur sans paramètre
 	public Produit() 
 	{
@@ -36,7 +41,7 @@ public class Produit
 	}
 
 	//constructeur avec paramètre
-	public Produit(Long id, String nomProduits, String detaille, String prix, String categorie, String marque,String imageProduit, int quantite, String adresseMail, int noteVendeur) 
+	public Produit(Long id, String nomProduits, String detaille, String prix, String categorie, String marque,String imageProduit, int quantite, Utilisateur utilisateur) 
 	{
 		super();
 		this.id = id;
@@ -47,8 +52,7 @@ public class Produit
 		this.marque = marque;
 		this.imageProduit = imageProduit;
 		this.quantite = quantite;
-		this.adresseMail = adresseMail;
-		this.noteVendeur = noteVendeur;
+		this.utilisateur = utilisateur;
 	}
 
 	//Getters and Setters
@@ -130,25 +134,4 @@ public class Produit
 	{
 		this.imageProduit = imageProduit;
 	}
-
-	public String getAdresseMail() 
-	{
-		return adresseMail;
-	}
-
-	public void setAdresseMail(String adresseMail) 
-	{
-		this.adresseMail = adresseMail;
-	}
-
-	public int getNoteVendeur() 
-	{
-		return noteVendeur;
-	}
-
-	public void setNoteVendeur(int noteVendeur) 
-	{
-		this.noteVendeur = noteVendeur;
-	}
-
 }
