@@ -1,4 +1,14 @@
-.navbar { background-color: #2A3C44; }
-.navbar .navbar-nav .nav-link { color: #8596a7; }
-.navbar .navbar-nav .nav-link:hover { color: #fbc531; }
-.navbar .navbar-nav .nav-link {padding-inline: 200px;}
+.navbar {
+  background-color: #30444E;
+  height: 80px;
+}
+.navbar-nav .nav-link {
+  color: #8596a7;
+}
+.navbar .navbar-nav .nav-link:hover {
+  color: #fbc531;
+}
+.navbar .navbar-nav .nav-link {
+  padding-inline: 200px;
+}
+

@@ -1,0 +1,122 @@
+.accueil {
+  position: relative;
+  width: 1654px;
+  height: 775px;
+  background: #30444E;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.titre-accueil {
+  position: relative;
+  font-size: 40px;
+  color: #3ED598;
+  top: 67px;
+  left: 60px;
+
+}
+
+.container-texte-accueil {
+  position: relative;
+  width: 523px;
+  height: 400px;
+  top: 125px;
+  left: 115px;
+}
+
+.text-accueil {
+  font-size: 30px;
+  line-height: 51px;
+  color: #FFF;
+  text-align: center;
+}
+
+.btn-accueil {
+  position: absolute;
+  width: 340px;
+  height: 75px;
+  left: 90px;
+  top: 460px;
+  border-radius: 25px;
+  background: #3ED598;
+  font-size: 35px;
+  color: #FFF;
+}
+
+.container-accueil-photo {
+  position: absolute;
+  width: 860px;
+  height: 689px;
+  left: 635px;
+  top: -140px;
+}
+
+.img1 {
+  position: absolute;
+  width: 272.12px;
+  height: 233.56px;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.img2 {
+  position: absolute;
+  width: 272.12px;
+  height: 300.12px;
+  left: 0;
+  top: 265px;
+  background: black;
+  border-radius: 10px;
+  border: 3px solid #FF565E;
+  box-sizing: border-box;
+}
+
+.img3 {
+  position: absolute;
+  width: 272.12px;
+  height: 96.93px;
+  left: 0;
+  top: 592px;
+  border-radius: 10px;
+}
+
+.img4 {
+  position: absolute;
+  width: 272.12px;
+  height: 172.83px;
+  left: 290px;
+  top: 0;
+  border-radius: 10px;
+  border: 3px solid #69A1BA;
+  box-sizing: border-box;
+}
+
+.img5 {
+  position: absolute;
+  width: 272.12px;
+  height: 293.12px;
+  left: 290px;
+  top: 200px;
+  border-radius: 10px;
+}
+
+.img6 {
+  position: absolute;
+  width: 272.12px;
+  height: 168px;
+  left: 290px;
+  top: 520px;
+  border-radius: 10px;
+}
+
+.img7 {
+  position: absolute;
+  width: 272.12px;
+  height: 585.07px;
+  left: 588px;
+  top: 50px;
+  border-radius: 10px;
+  border: 3px solid #F2B200;
+  box-sizing: border-box;
+}
