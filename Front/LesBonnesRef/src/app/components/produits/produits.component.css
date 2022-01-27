@@ -5,3 +5,19 @@
     margin-top: 10px;
     margin-left: 15px;
 }
+
+#rechercheProduit
+{
+    background-color: #1A282F ;
+    text-decoration: greenyellow;
+}
+
+#rechercheProduit::placeholder
+{
+    color: #909ba1; /* couleur du placeholder */
+}
+
+#boutonVendre
+{
+    background-color: #3ED598;
+}
