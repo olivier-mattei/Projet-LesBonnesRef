@@ -9,7 +9,7 @@ import {ProduitService} from 'src/app/services/produit.service';
 export class ProduitsComponent implements OnInit {
 
   listeDesProduits:any
-  constructor(private produitService:ProduitService) { }
+  constructor(private produitService:ProduitService) {}
 
   produitsModifie=
   {
@@ -22,10 +22,55 @@ export class ProduitsComponent implements OnInit {
     imageProduit:"",
     quantite:"",
   }
+  compteurLigne:number=0;
 
   ngOnInit(): void 
   {
     this.affichageProduit();
+  }
+
+  couleurCardProduit(idCard:number)
+  {
+    ////////////////////////////déclaration de mon tableau et de ma variable local////////////////////////////////////////
+    let TableauCouleur=["#3ED598","#F2B200","#FF565E","#69A1BA"];// Vert,Jaune,Rouge,Bleu
+    //console.log("méthode CouleurCardPrecedente");
+    let IndexCouleurCardActuelle=0;
+    let test=0;
+    //////////////////////////////////////////////Condition afin de pas prendre la même couleur que celle utilisé juste avant////////////////////////////////////////////
+    if(idCard==1)//au début
+    {
+      IndexCouleurCardActuelle=0;//vert
+      test=1
+    }
+ 
+    else if(idCard%4==0)//test module de 4
+    {
+      IndexCouleurCardActuelle=3;//bleu
+      test=2;
+    }
+
+    else if (idCard%2==0)//si module de 3
+    {
+      IndexCouleurCardActuelle=1;//Jaune
+      test=3;
+    }
+
+    else if (idCard%3==0)//si module de 3
+    {
+      IndexCouleurCardActuelle=2;//Rouge
+      test=4;
+    }
+
+    else //reste
+    {
+      IndexCouleurCardActuelle=0;//Vert
+      test=5;
+    }
+
+    console.log(test+" pour id "+idCard);
+
+    return TableauCouleur[IndexCouleurCardActuelle];
+        //////////////////////////////////////////////fin Condition////////////////////////////////////////////
   }
 
   //méthode GET affiche tout le contenu de la bdd

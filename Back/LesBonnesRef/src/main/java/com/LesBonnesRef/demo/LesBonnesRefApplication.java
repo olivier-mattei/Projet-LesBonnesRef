@@ -48,6 +48,65 @@ public class LesBonnesRefApplication implements CommandLineRunner
 		Produit produit1 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
 		produitRepository.save(produit1);
 		
+		Produit produit2 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit2);
+		
+		Produit produit3 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit3);
+		
+		Produit produit4 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit4);
+		
+		Produit produit5 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit5);
+		
+		Produit produit6 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit6);
+		
+		Produit produit7= new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit7);
+		
+		Produit produit8 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit8);
+		
+		Produit produit9 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit9);
+		
+		Produit produit10 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit10);
+		
+		Produit produit11 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit11);
+		
+		Produit produit12 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit12);
+		
+		Produit produit13 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit13);
+		
+		Produit produit14 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit14);
+		
+		Produit produit15 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit15);
+		
+		Produit produit16 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit16);
+		
+		Produit produit17= new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit17);
+		
+		Produit produit18 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit18);
+		
+		Produit produit19 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit19);
+		
+		Produit produit20 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
+		produitRepository.save(produit20);
+		
+		
+		
 		restRespository.exposeIdsFor(Produit.class); //permet la récupération du champ id
 		
 	}
