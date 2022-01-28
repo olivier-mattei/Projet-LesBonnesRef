@@ -11,3 +11,8 @@
 	background: #2A3C44;
 	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
 }
+
+.valueColorIns::content{
+	color:white;
+	
+}

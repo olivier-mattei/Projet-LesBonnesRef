@@ -21,3 +21,25 @@
 {
     background-color: #3ED598;
 }
+
+.valueColorIns::content{
+	color:white;
+    background-color: #2A3C44;
+	
+}
+
+.modal-body{
+    background-color: #30444E;
+
+}
+
+.modal-header{
+    background-color: #2A3C44;
+    
+}
+
+.form-label{
+    color: white;
+}
+
+

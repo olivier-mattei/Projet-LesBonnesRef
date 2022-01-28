@@ -1,22 +1,89 @@
 <div class="container p-4 " id="barreAuDessusProduit">
-    <section class="row g-3"> 
+    <section class="row g-3">
+        <!-- ************** RECHERCHE MOT CLE AVEC TWO WAY BINDING *************** -->
         <article class="col-8 col-md-10 col-lg-10">
-            <input type="search" class="btn-lg" id="rechercheProduit" placeholder="rechercher un produit">
+            <input class="btn-lg" id="rechercheProduit" type="search" name="search" [(ngModel)]="motCle"
+                (ngModelChange)="rechercheMotCle()" placeholder="rechercher un produit">
         </article>
-
+        <!-- ******************* BOUTON VENDRE ****************** -->
         <article class="col-4 col-md-2 col-lg-2">
-            <button class="btn-lg" id="boutonVendre"> Vendre un produit </button>
+            <button type="button" class="btn-lg" id="boutonVendre" data-bs-toggle="modal" data-bs-target="#ModalForm">
+                Vendre un produit </button>
         </article>
-    </section> 
+    </section>
 
 </div>
+<!-- ********** FIN BOUTON ET RECHERCHE ************* -->
+
+<div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- *************************** MODAL ACTIF **************************** -->
+            <div class="modal-header">
+                <h5 class="modal-title text-white" id="ModalFormLabel">Nouveau produit</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="col" (ngSubmit)="creationProduit(nouveauProduit)" #nouveauProduit="ngForm">
+                    <!-- ************************ CONTENU MODAL ***************************** -->
+                    <div class="row">
+                        <article class="col-xs-6 col-sm-6 col-md-6">
+                            <label class="form-label">Nom</label>
+                            <input type="text" class="valueColorIns form-control" name="nomProduits" ngModel required
+                                minlength="3" maxlength="1000">
+                        </article>
+                        <article class="col-xs-6 col-sm-6 col-md-6">
+                            <label class="form-label">Catégorie</label>
+                            <input type="text" class="valueColorIns form-control" name="categorie" ngModel required
+                                minlength="3" maxlength="1000">
+                        </article>
+                        <article class="col-xs-6 col-sm-6 col-md-6">
+                            <label class="form-label">Quantité</label>
+                            <input type="number" class="valueColorIns form-control" name="quantite" ngModel required
+                                minlength="3" maxlength="1000">
+                        </article>
+                        <article class="col-xs-6 col-sm-6 col-md-6">
+                            <label class="form-label">Prix</label>
+                            <input type="number" class="valueColorIns form-control" name="prix" ngModel required
+                                minlength="3" maxlength="1000">
+                        </article>
+                    </div>
+                    <article class="mb-3">
+                        <label class="form-label">Marque</label>
+                        <input type="text" class="valueColorIns form-control" name="marque" ngModel required
+                            minlength="3" maxlength="1000">
+                    </article>
+                    <article class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="valueColorIns form-control" name="detaille" rows="3" ngModel required
+                            minlength="3" maxlength="1000"></textarea>
+                    </article>
+
+                    <article class="mb-3">
+                        <label class="form-label">Photo</label>
+                        <br>
+                        <input type="file" id="imageProduit" name="imageProduit" accept="image/png, image/jpeg" ngModel>
+                    </article>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn-sm" id="boutonVendre">Submit</button>
+                    </div>
+                </form>
+                <!-- ******************** FIN DU CONTENU **************************** -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ********************** FIN MODAL ********************* -->
 
 <div class="container ">
     <section class="row">
-        <article class="col-4 col-md-4 col-lg-4 rounded cardSize" *ngFor="let iter of listeDesProduits._embedded.produits" [ngStyle]="{'background-color': couleurCardProduit(iter.id)}">
-          <!-- col-12 col-md-6 col-lg-4 mb-3-->
-          <div class="card spacing bg-transparent"> <!--création de notre card -->
-            <!-- <script> couleurCardProduit();</script> -->
+        <article class="col-4 col-md-4 col-lg-4 rounded cardSize"
+            *ngFor="let iter of listeDesProduits._embedded.produits"
+            [ngStyle]="{'background-color': couleurCardProduit(iter.id)}">
+            <!-- col-12 col-md-6 col-lg-4 mb-3-->
+            <div class="card spacing bg-transparent">
+                <!--création de notre card -->
                 <img src={{iter.imageProduit}} class="img-fluid rounded-start" alt="image du produits">
                 <section class="col-md-8">
                     <div class="card-body">
@@ -28,4 +95,3 @@
         </article>
     </section>
 </div>
-
