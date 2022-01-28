@@ -1,11 +1,4 @@
-.cardSize
-{
-    width: 23.5%;
-    /* margin: auto; */
-    margin-top: 10px;
-    margin-left: 15px;
-}
-
+/************************************************** barre de recherche au dessus des card produit *********************************************/
 #rechercheProduit
 {
     background-color: #1A282F ;
@@ -22,24 +15,67 @@
     background-color: #3ED598;
 }
 
-.valueColorIns::content{
+/*********************************************************** affichage des produits  ***********************************************************/
+.cardSize
+{
+    width: 23.5%;
+    /* margin: auto; */
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+#btnDetailProduit
+{
+    background: transparent; /* transparence de l'arrière plan */ 
+    border: none; /* transparence du contour */
+}
+
+/***************************************************** tous les panels ******************************************************************/
+
+.modal-header
+{
+    background-color: #2A3C44;
+    
+}
+
+.modal-body
+{
+    background-color: #30444E;
+}
+
+.valueColorIns::content
+{
 	color:white;
     background-color: #2A3C44;
 	
 }
 
-.modal-body{
+.modal-footer
+{
     background-color: #30444E;
-
 }
 
-.modal-header{
-    background-color: #2A3C44;
-    
-}
 
-.form-label{
+/***************************************************** panel nouveau produits ******************************************************************/
+.form-label
+{
     color: white;
 }
 
+/***************************************************** panel détail des produits **************************************************************/
+#coteGauchePanelVisuProduit
+{
+    float:left; /* occupe la gauche de mon panel*/
+    width: 45%;
+}
 
+#coteDroitPanelVisuProduit
+{
+    float:right; /* occupe la droite de mon panel*/
+    width: 50%;
+}
+
+#imageProduit
+{
+    max-width: 100%;
+}

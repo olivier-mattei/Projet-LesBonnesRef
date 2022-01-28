@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProduitService } from 'src/app/services/produit.service';
+import {ProduitService} from 'src/app/services/produit.service';
+import {UtilisateurService} from 'src/app/services/utilisateur.service';
 
 @Component({
   selector: 'app-produits',
@@ -8,25 +9,46 @@ import { ProduitService } from 'src/app/services/produit.service';
 })
 export class ProduitsComponent implements OnInit {
 
-  listeDesProduits: any
-  constructor(private produitService: ProduitService) { }
+  listeDesProduits:any
 
+  // pour la recherche
   produitTrouve: any;
   motCle: any;
 
-  produitsModifie =
-    {
-      id: 0,
-      nomProduits: "",
-      detaille: "",
-      prix: "",
-      categorie: "",
-      marque: "",
-      imageProduit: "",
-      quantite: "",
-    }
+  //pour la couleur des card
+  compteurLigne:number=0;
 
-  compteurLigne: number = 0;
+  //pour l'affichage en detail dans le panel produit
+  NomPrenomVendeur:string="";
+  hrefUtilisateur:any;
+
+  constructor(private produitService:ProduitService,private utilisateurService:UtilisateurService) {}
+
+  //objet produit
+  produitsModifie=
+  {
+    id:0,
+    nomProduits:"",
+    detaille:"",
+    prix:"",
+    categorie:"",
+    marque:"",
+    imageProduit:Image, //création de mon objet de type image
+    quantite:0,
+  }
+
+  //objet utilisateur
+  utilisateurVendeur:any=
+  {
+    nom: "",
+    prenom: "",
+    telephone: "",
+    adresse: "",
+    mail: "",
+    motDePasse: "",
+    noteVendeur: 0,
+    portefeuille: 0,
+  }
 
   ngOnInit(): void {
     this.affichageProduit();
@@ -69,8 +91,7 @@ export class ProduitsComponent implements OnInit {
       test = 5;
     }
 
-    console.log(test + " pour id " + idCard);
-
+    //console.log(test+" pour id "+idCard);
     return TableauCouleur[IndexCouleurCardActuelle];
     //////////////////////////////////////////////fin Condition////////////////////////////////////////////
   }
@@ -88,7 +109,7 @@ export class ProduitsComponent implements OnInit {
     var valueProduits = nouveauProduit.value;
     this.produitService.ajoutProduit(valueProduits).subscribe(Response => {
       console.log("création de l'objet réussi");
-      this.affichageProduit;//réactualisation de la page
+      this.affichageProduit();//réactualisation de la page
     })
   }
 
@@ -96,6 +117,7 @@ export class ProduitsComponent implements OnInit {
   modificationProduit() {
     this.produitService.modifProduit(this.produitsModifie).subscribe(data => {
       console.log("objet modifié");
+      this.affichageProduit();//réactualisation de la page
     })
   }
 
@@ -107,6 +129,22 @@ export class ProduitsComponent implements OnInit {
     this.affichageProduit();//réactualisation de la page
   }
 
+  recuperationDesData(dataProduit:any)
+  {
+    //récupération des data du produit
+    this.produitsModifie=dataProduit;//enregistrement des data produit dans une variable locale
+
+    //récupération de l'url utilisateur du produit
+    this.hrefUtilisateur=dataProduit._links.utilisateur.href
+
+    //requêtes GET pour récupération des data vendeur
+    this.utilisateurService.recuperationUtilisateurParUrlProduit(this.hrefUtilisateur).subscribe(dataVendeur=>
+    {
+      this.utilisateurVendeur=dataVendeur;//enregistrement des data vendeur dans une variable locale
+      this.NomPrenomVendeur=this.utilisateurVendeur.nom+" "+this.utilisateurVendeur.prenom;// concaténation pour récupération du nom + prenom
+    })
+  }
+  
   //méthode GET recherche par mot clé avec two way binding
   rechercheMotCle() {
     this.produitService.rechercherProduit(this.motCle).subscribe(data => {
@@ -115,6 +153,5 @@ export class ProduitsComponent implements OnInit {
     })
 
   }
-
 
 }

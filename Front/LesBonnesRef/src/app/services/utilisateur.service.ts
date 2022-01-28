@@ -15,5 +15,10 @@ export class UtilisateurService {
     return this.http.post(this.url, utilisateur);
   }
 
+  recuperationUtilisateurParUrlProduit(urlProduit:any)
+  {
+    return this.http.get(urlProduit);
+  }
+
 
 }
