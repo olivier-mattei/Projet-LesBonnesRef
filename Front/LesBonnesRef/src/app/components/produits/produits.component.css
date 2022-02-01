@@ -1,4 +1,9 @@
 /************************************************** barre de recherche au dessus des card produit *********************************************/
+#barreAuDessusProduit
+{
+    margin-top: 5%;/*correctif de la navbar au-dessus pour écran d'ordi*/
+}
+
 #rechercheProduit
 {
     background-color: #1A282F ;
