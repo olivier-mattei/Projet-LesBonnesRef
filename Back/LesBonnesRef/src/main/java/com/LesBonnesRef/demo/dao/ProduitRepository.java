@@ -17,4 +17,7 @@ public interface ProduitRepository extends JpaRepository<Produit, Long>
 {
 	@RestResource(path="/nomProduits")
 	public List<Produit> findBynomProduitsContains(@Param("nomProduits") String nomProduits);
+	
+	@RestResource(path="/categorie")
+    public List<Produit> findBycategorieContains(@Param("categorie") String categorie);
 }

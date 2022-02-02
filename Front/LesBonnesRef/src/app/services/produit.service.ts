@@ -34,8 +34,12 @@ export class ProduitService {
     return this.http.get(this.url + "/search/nomProduits?nomProduits=" + motCle);
   }
 
+  rechercheParCategorie(categorie: any) { //méthode rechercher produits par catergorie
+    return this.http.get(this.url + "/search/categorie?categorie=" + categorie);
+  }
+
   paginationProduit(page: any) {
     return this.http.get(this.url + "?page=" + page + "&size=12");
-  }  
+  }
 
 }
