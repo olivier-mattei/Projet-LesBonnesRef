@@ -30,7 +30,8 @@ export class ProduitService {
     return this.http.delete(this.url + "/" + id);
   }
 
-  rechercherProduit(motCle: any) {
+  rechercherProduit(motCle: any) 
+  {
     return this.http.get(this.url + "/search/nomProduits?nomProduits=" + motCle);
   }
 

@@ -18,11 +18,11 @@ export class ProduitsComponent implements OnInit {
   //pour la couleur des card
   compteurLigne:number=0;
 
-  //pour l'affichage en detail dans le panel produit
+  //pour l'affichage en détail dans le panel produit
   NomPrenomVendeur:string="";
   hrefUtilisateur:any;
 
-  constructor(private produitService:ProduitService,private utilisateurService:UtilisateurService) {}
+  constructor(private produitService:ProduitService,private utilisateurService:UtilisateurService){}
 
   //objet produit
   produitsModifie=
@@ -52,6 +52,7 @@ export class ProduitsComponent implements OnInit {
 
   ngOnInit(): void {
     this.affichageProduit();
+    this.utilisateurService.recuperationDeToutLesUtilisateurs()//récupération de tous les utilisateurs partie service
   }
 
   couleurCardProduit(idCard: number) {

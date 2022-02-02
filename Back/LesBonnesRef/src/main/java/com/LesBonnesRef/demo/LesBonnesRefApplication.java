@@ -1,5 +1,10 @@
 package com.LesBonnesRef.demo;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+
 import org.apache.catalina.startup.ClassLoaderFactory.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -40,13 +45,35 @@ public class LesBonnesRefApplication implements CommandLineRunner
 		// TODO Auto-generated method stub
 		System.out.println("El Backolongo tiene vida");
 		
+		//chemin de mon ordi 
+//        String path = "D:/Système/Users/CHERUB96X/Images/projetImage";
+//		
+//		//création de mes images
+//		BufferedImage img1 = ImageIO.read(new File(path+"/image1.jpg"));
+//		
+//		BufferedImage img2 = ImageIO.read(new File(path+"/image2.jpg"));
+//		
+//		BufferedImage img3 = ImageIO.read(new File(path+"image3.jpg"));
+//		
+//		//création de mon tableau d'image
+//		BufferedImage tableauImgProduit[] = new BufferedImage[3];
+//		
+//		//ajout des images dans le tableau
+//		tableauImgProduit[0]=img1;
+//		tableauImgProduit[1]=img2;
+//		tableauImgProduit[2]=img3;
+//		
+		
 		//création de l'utilisateur 
-		Utilisateur user1 = new Utilisateur(null,"Prie","Galaad","067578843","TikitaJeLaLove","PrieGalaad@gmail.com","4 Rue De la BheuRisière",4);
+		Utilisateur user1 = new Utilisateur(null,"Prie","Galaad","067578843","TikitaJeLaLove","PrieGalaad@gmail.com","4 Rue De la BheuRisière","vendeur",4);
 		utilisateurRepository.save(user1);
 		
+		Utilisateur user2= new Utilisateur(null,"Mattei","Olivier","067578843","titi13","olimatt96@gmail.com","4 Rue De la Concorde","admin",5);
+		utilisateurRepository.save(user2);
+		
 		//création d'un produits
-		Produit produit1 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
-		produitRepository.save(produit1);
+//		Produit produit1 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1,tableauImgProduit);
+//		produitRepository.save(produit1);
 		
 		Produit produit2 = new Produit(null,"Thé Noir","Un thé noir, ou thé anglo-indien, est fait de feuilles de théier qui ont subi une oxydation complète. Ces thés sont nommés thés rouges dans le monde chinois. En Chine, on appelle « thé noir » le thé post-fermenté, comme le pu-erh. ","150","test","MarquageTest","https://st.depositphotos.com/1020804/1945/i/600/depositphotos_19458553-stock-photo-cup-of-tea-and-teapot.jpg",455, user1);
 		produitRepository.save(produit2);

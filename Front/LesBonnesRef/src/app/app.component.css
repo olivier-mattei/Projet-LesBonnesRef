@@ -7,7 +7,7 @@
 body {
   height: 100vh;
 }
-
+/************************************************** gestion des logos de la navBar ***************************/
 .liste-nav {
   z-index: 1;
   width: 100%;
@@ -21,14 +21,35 @@ body {
   align-items: center;
 }
 
-.item-nav {
-  font: 17.5px;
+/************************************************** gestion des logos de la navBar ***************************/
+.item-nav 
+{
+  font: 17.5px; /* taille des icônes */
 }
 
-i {
-  color: #96A7AF;
+i 
+{
+  color: #96A7AF; /* couleur des icônes */
 }
 
-i:hover {
+i:hover 
+{
   color: #3ED598;
+}
+
+#btnBoutonConnexion /* bouton page connexion */
+{
+  /* position: absolute; */
+
+}
+
+/************************************ bouton si utilisateur connecté**************************************/
+.dropdown-item
+{
+  background-color: #96A7AF; /* couleur de la liste */
+}
+
+#UtilisateurConnecte
+{
+  color: #FF565E; /* couleur du texte dans la navBar */
 }
