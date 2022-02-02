@@ -1,4 +1,4 @@
-<div class="container p-4 " id="barreAuDessusProduit">
+<div class="container p-4" id="barreAuDessusProduit">
     <section class="row g-3">
         <!-- ************** RECHERCHE MOT CLE AVEC TWO WAY BINDING *************** -->
         <article class="col-8 col-md-10 col-lg-10">
@@ -89,7 +89,8 @@
                     <div class="card-body">
                         <h5 class="card-title">{{iter.nomProduits}}</h5>
                         <p class="card-text">{{iter.detaille}}</p>
-                        <button class="far fa-eye" id="btnDetailProduit" (click)="recuperationDesData(iter)" data-bs-toggle="modal" data-bs-target="#PopupDetaileProduit"> </button>
+                        <button class="far fa-eye" id="btnDetailProduit" (click)="recuperationDesData(iter)"
+                            data-bs-toggle="modal" data-bs-target="#PopupDetaileProduit"> </button>
                     </div>
                 </section>
             </div>
@@ -98,43 +99,60 @@
 
     <div class="modal" id="PopupDetaileProduit" tabindex="-1">
         <div class="modal-dialog modal-lg" id="detailProduit">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title text-white">Description du produit {{produitsModifie.nomProduits}} </h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <section id="coteGauchePanelVisuProduit"> 
-                <div class="input-group mb-3">
-                  <!-- <a class="fas fa-user"></a> -->
-                  <input name="vendeurProduit" readonly class="form-control form-control-lg valueColorIns" value={{NomPrenomVendeur}} >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white">Description du produit {{produitsModifie.nomProduits}} </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-  
-                <div class="input-group mb-3">
-                    <input name="categorieProduit" readonly class="form-control form-control-lg valueColorIns" value={{produitsModifie.categorie}}>
-                </div>
-  
-                <div class="input-group mb-3">
-                    <input name="jeSaisPas" readonly class="form-control form-control-lg valueColorIns" value={{produitsModifie.marque}}>                
-                </div>
-                
-                <div class="input-group mb-3">
-                    <textarea name="descriptionProduit"  readonly class="form-control valueColorIns" rows="5" value={{produitsModifie.detaille}}></textarea>
-                </div>
+                <div class="modal-body">
+                    <section id="coteGauchePanelVisuProduit">
+                        <div class="input-group mb-3">
+                            <!-- <a class="fas fa-user"></a> -->
+                            <input name="vendeurProduit" readonly class="form-control form-control-lg valueColorIns"
+                                value={{NomPrenomVendeur}}>
+                        </div>
 
-              </section>
-              
-              <article id="coteDroitPanelVisuProduit">
-                <img src={{produitsModifie.imageProduit}} id="imageProduit">
-              </article>
+                        <div class="input-group mb-3">
+                            <input name="categorieProduit" readonly class="form-control form-control-lg valueColorIns"
+                                value={{produitsModifie.categorie}}>
+                        </div>
 
+                        <div class="input-group mb-3">
+                            <input name="jeSaisPas" readonly class="form-control form-control-lg valueColorIns"
+                                value={{produitsModifie.marque}}>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <textarea name="descriptionProduit" readonly class="form-control valueColorIns" rows="5"
+                                value={{produitsModifie.detaille}}></textarea>
+                        </div>
+
+                    </section>
+
+                    <article id="coteDroitPanelVisuProduit">
+                        <img src={{produitsModifie.imageProduit}} id="imageProduit">
+                    </article>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary valueColorIns"
+                        data-bs-dismiss="modal">{{produitsModifie.prix}}€</button>
+                    <button type="button" class="btn btn-primary valueColorIns" data-bs-dismiss="modal">Ajouter au
+                        panier</button>
+                </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary valueColorIns" data-bs-dismiss="modal">{{produitsModifie.prix}}€</button>
-              <button type="button" class="btn btn-primary valueColorIns" data-bs-dismiss="modal">Ajouter au panier</button>
-            </div>
-          </div>
         </div>
-      </div>
-  
+    </div>
+
 </div>
+
+<nav class="container p-4">
+    <ul class="pagination">
+        <li class="page-item">
+            <button (click)="affichageProduit()" class="page-link">1</button>
+        </li>
+        <li class="page-item">
+            <button  (click)="deuxiemePage()" class="page-link">2</button>
+        </li>
+    </ul>
+</nav>

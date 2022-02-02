@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ProduitService} from 'src/app/services/produit.service';
-import {UtilisateurService} from 'src/app/services/utilisateur.service';
+import { ProduitService } from 'src/app/services/produit.service';
+import { UtilisateurService } from 'src/app/services/utilisateur.service';
 
 @Component({
   selector: 'app-produits',
@@ -9,46 +9,50 @@ import {UtilisateurService} from 'src/app/services/utilisateur.service';
 })
 export class ProduitsComponent implements OnInit {
 
-  listeDesProduits:any
+  listeDesProduits: any;
+
+  // pagination
+  nombreTotalPages: any;
 
   // pour la recherche
   produitTrouve: any;
   motCle: any;
 
   //pour la couleur des card
-  compteurLigne:number=0;
+  compteurLigne: number = 0;
 
   //pour l'affichage en detail dans le panel produit
-  NomPrenomVendeur:string="";
-  hrefUtilisateur:any;
+  NomPrenomVendeur: string = "";
+  hrefUtilisateur: any;
 
-  constructor(private produitService:ProduitService,private utilisateurService:UtilisateurService) {}
+  constructor(private produitService: ProduitService, private utilisateurService: UtilisateurService) { }
 
   //objet produit
-  produitsModifie=
-  {
-    id:0,
-    nomProduits:"",
-    detaille:"",
-    prix:"",
-    categorie:"",
-    marque:"",
-    imageProduit:Image, //création de mon objet de type image
-    quantite:0,
-  }
+  produitsModifie =
+    {
+      id: 0,
+      nomProduits: "",
+      detaille: "",
+      prix: "",
+      categorie: "",
+      marque: "",
+      imageProduit: Image, //création de mon objet de type image
+      quantite: 0,
+    }
+
 
   //objet utilisateur
-  utilisateurVendeur:any=
-  {
-    nom: "",
-    prenom: "",
-    telephone: "",
-    adresse: "",
-    mail: "",
-    motDePasse: "",
-    noteVendeur: 0,
-    portefeuille: 0,
-  }
+  utilisateurVendeur: any =
+    {
+      nom: "",
+      prenom: "",
+      telephone: "",
+      adresse: "",
+      mail: "",
+      motDePasse: "",
+      noteVendeur: 0,
+      portefeuille: 0,
+    }
 
   ngOnInit(): void {
     this.affichageProduit();
@@ -98,7 +102,8 @@ export class ProduitsComponent implements OnInit {
 
   //méthode GET affiche tout le contenu de la bdd
   affichageProduit() {
-    this.produitService.afficherProduit().subscribe(data => {
+    // this.produitService.afficherProduit().subscribe(data => {
+    this.produitService.paginationProduit(0).subscribe(data => {
       this.listeDesProduits = data;
       console.log(this.listeDesProduits);
     })
@@ -129,29 +134,40 @@ export class ProduitsComponent implements OnInit {
     this.affichageProduit();//réactualisation de la page
   }
 
-  recuperationDesData(dataProduit:any)
-  {
+  recuperationDesData(dataProduit: any) {
     //récupération des data du produit
-    this.produitsModifie=dataProduit;//enregistrement des data produit dans une variable locale
+    this.produitsModifie = dataProduit;//enregistrement des data produit dans une variable locale
 
     //récupération de l'url utilisateur du produit
-    this.hrefUtilisateur=dataProduit._links.utilisateur.href
+    this.hrefUtilisateur = dataProduit._links.utilisateur.href
 
     //requêtes GET pour récupération des data vendeur
-    this.utilisateurService.recuperationUtilisateurParUrlProduit(this.hrefUtilisateur).subscribe(dataVendeur=>
-    {
-      this.utilisateurVendeur=dataVendeur;//enregistrement des data vendeur dans une variable locale
-      this.NomPrenomVendeur=this.utilisateurVendeur.nom+" "+this.utilisateurVendeur.prenom;// concaténation pour récupération du nom + prenom
+    this.utilisateurService.recuperationUtilisateurParUrlProduit(this.hrefUtilisateur).subscribe(dataVendeur => {
+      this.utilisateurVendeur = dataVendeur;//enregistrement des data vendeur dans une variable locale
+      this.NomPrenomVendeur = this.utilisateurVendeur.nom + " " + this.utilisateurVendeur.prenom;// concaténation pour récupération du nom + prenom
     })
   }
-  
+
   //méthode GET recherche par mot clé avec two way binding
   rechercheMotCle() {
     this.produitService.rechercherProduit(this.motCle).subscribe(data => {
       this.listeDesProduits = data;
       this.produitTrouve = this.listeDesProduits._embedded.produits.length;
     })
-
   }
+
+  deuxiemePage() {
+    this.produitService.paginationProduit(1).subscribe(data =>{
+      this.listeDesProduits=data;
+    })
+  }
+
+  // affichagePages() {
+  //   this.produitService.paginationProduit(this.nombreTotalPages).subscribe(data => {
+  //     this.listeDesProduits = data;
+  //     this.nombreTotalPages = this.listeDesProduits.page.totalPages;
+  //     console.log("nom de pages:" + this.nombreTotalPages);
+  //   })
+  // }
 
 }

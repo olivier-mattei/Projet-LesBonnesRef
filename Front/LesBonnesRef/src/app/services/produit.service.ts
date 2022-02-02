@@ -30,9 +30,12 @@ export class ProduitService {
     return this.http.delete(this.url + "/" + id);
   }
 
-  rechercherProduit(motCle: any) {
+  rechercherProduit(motCle: any) { //méthode rechercher produit par nom
     return this.http.get(this.url + "/search/nomProduits?nomProduits=" + motCle);
   }
 
+  paginationProduit(page: any) {
+    return this.http.get(this.url + "?page=" + page + "&size=12");
+  }  
 
 }
