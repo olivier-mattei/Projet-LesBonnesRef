@@ -28,6 +28,9 @@ public class Utilisateur
 	
 	@Column(length=25) //taille de charactére 25 max
 	private String mail,adresse; //création de mon utilisateur
+	
+	@Column(length=7)
+	private String role; 
 
 	@Column(length=1)//taille de charactére 1
 	private int noteVendeur; //note total sur 5
@@ -43,10 +46,11 @@ public class Utilisateur
 	{
 		super();
 		this.portefeuille= this.GenerationRandomArgent(); //appelle de ma méthode Random pour l'argent
+		this.role="vendeur";//on met en vendeur automatiquement
 	}
 	
 	//constructeur avec paramètre
-	public Utilisateur(Long id, String nom, String prenom, String telephone, String motDePasse, String mail,String adresse, int noteVendeur) 
+	public Utilisateur(Long id, String nom, String prenom, String telephone, String motDePasse, String mail,String adresse,String role, int noteVendeur) 
 	{
 		super();
 		this.id = id;
@@ -57,9 +61,10 @@ public class Utilisateur
 		this.mail = mail;
 		this.adresse = adresse;
 		this.noteVendeur = noteVendeur;
+		this.role=role;//on met en vendeur automatiquement
 		this.portefeuille= this.GenerationRandomArgent(); //appelle de ma méthode Random pour l'argent
 	}
-
+	
 	//Getters and Setters
 	public Long getId() 
 	{
@@ -133,6 +138,16 @@ public class Utilisateur
 		this.adresse = adresse;
 	}
 	
+	public String getRole() 
+	{
+		return role;
+	}
+
+	public void setRole(String role)
+	{
+		this.role = role;
+	}
+
 	public int getNoteVendeur() {
 		return noteVendeur;
 	}

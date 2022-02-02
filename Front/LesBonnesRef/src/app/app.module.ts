@@ -7,14 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProduitsComponent } from './components/produits/produits.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { FormsModule } from '@angular/forms';
-import { InscriptionComponent } from './components/inscription/inscription.component';
+import { ConnexionComponent } from './components/connexion/connexion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProduitsComponent,
     AccueilComponent,
-    InscriptionComponent
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,

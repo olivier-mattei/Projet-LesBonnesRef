@@ -56,6 +56,7 @@ export class ProduitsComponent implements OnInit {
 
   ngOnInit(): void {
     this.affichageProduit();
+    this.utilisateurService.recuperationDeToutLesUtilisateurs()//récupération de tous les utilisateurs partie service
   }
 
   couleurCardProduit(idCard: number) {

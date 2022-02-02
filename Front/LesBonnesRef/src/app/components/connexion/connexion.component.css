@@ -17,3 +17,13 @@
     background-color: #30444E;
 	
 }
+
+#inscriptionPanel
+{
+    visibility: collapse;
+}
+
+#textInscription:hover
+{
+    color: blue;
+}

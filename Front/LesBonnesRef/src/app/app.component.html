@@ -19,10 +19,22 @@
         <i class="fas fa-shopping-bag fa-2x"></i>
       </a>
     </li>
+    <!-- visible que quand on est pas connecté-->
     <li class="item-nav">
-      <a class="nav-link" routerLink="pageInscription">
+      <a class="nav-link" id="btnBoutonConnexion" routerLink="pageConnexion" *ngIf="pasConnecter">
         <i class="fas fa-user fa-2x"></i>
       </a>
+
+        <div class="btn-group dropstart">
+          <button id="UtilisateurConnecte" type="button" class="btn btn-secondary dropdown-toggle fas fa-user fa-2x" data-bs-toggle="dropdown" aria-expanded="false" *ngIf="!pasConnecter">
+            {{utilisateur}}
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Panier</a></li>
+            <li><a class="dropdown-item" (click)="deconnectionUtilisateur()">déconnexion</a></li>
+          </ul>
+        </div>
+
     </li>
   </ul>
 </nav>

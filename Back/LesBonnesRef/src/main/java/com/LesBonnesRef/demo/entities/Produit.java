@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 
 /* import des Liste */
 import java.awt.Image; // ma classe image
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -30,6 +31,7 @@ public class Produit
 
 	//a regarder plus tard
 	//private List<Image> myArrayList = new ArrayList<Image>(); //tableau d'image
+	//private BufferedImage tableauImgProduit[] = new BufferedImage[3];//tableau de 3 image
 
 	@ManyToOne
 	private Utilisateur utilisateur;//création de ma clé étrengère
@@ -40,7 +42,6 @@ public class Produit
 		super();
 	}
 
-	//constructeur avec paramètre
 	public Produit(Long id, String nomProduits, String detaille, String prix, String categorie, String marque,String imageProduit, int quantite, Utilisateur utilisateur) 
 	{
 		super();
@@ -54,6 +55,23 @@ public class Produit
 		this.quantite = quantite;
 		this.utilisateur = utilisateur;
 	}
+	
+
+//	//constructeur avec paramètre
+//	public Produit(Long id, String nomProduits, String detaille, String prix, String categorie, String marque,String imageProduit, int quantite, Utilisateur utilisateur,BufferedImage tableauImage[]) 
+//	{
+//		super();
+//		this.id = id;
+//		this.nomProduits = nomProduits;
+//		this.detaille = detaille;
+//		this.prix = prix;
+//		this.categorie = categorie;
+//		this.marque = marque;
+//		this.imageProduit = imageProduit;
+//		this.quantite = quantite;
+//		this.utilisateur = utilisateur;
+//		this.tableauImgProduit= tableauImage;
+//	}
 
 	//Getters and Setters
 	public Long getId() 
@@ -134,4 +152,14 @@ public class Produit
 	{
 		this.imageProduit = imageProduit;
 	}
+
+//	public BufferedImage[] getTableauImgProduit() 
+//	{
+//		return tableauImgProduit;
+//	}
+//
+//	public void setTableauImgProduit(BufferedImage tableauImgProduit[]) 
+//	{
+//		this.tableauImgProduit = tableauImgProduit;
+//	}
 }
