@@ -1,0 +1,29 @@
+.centered-form{
+	margin-top: 200px;
+}
+
+.panel{
+	border-radius: 25px;
+
+}
+
+.centered-form .panel{
+	
+	background: #30444E;
+	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+
+.centered-form .panel-heading{
+	border-radius: 25px;
+
+	background: #30444E;
+	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+
+.valueColorIns::content{
+	border-radius: 25px;
+
+	color:white;
+    background-color: #2A3C44;
+	
+}

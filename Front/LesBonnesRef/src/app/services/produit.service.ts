@@ -39,7 +39,7 @@ export class ProduitService {
   }
 
   paginationProduit(page: any) {
-    return this.http.get(this.url + "?page=" + page + "&size=12");
+    return this.http.get(this.url + "?page=" + page + "&size=8");
   }
 
 }

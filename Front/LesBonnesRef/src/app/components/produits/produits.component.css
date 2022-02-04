@@ -21,12 +21,18 @@
 }
 
 /*********************************************************** affichage des produits  ***********************************************************/
-.cardSize
+.cardBorder{
+    border-radius: 25px;
+}
+
+.marginCard{
+    margin: 0 15px 15px 15px;
+}
+
+.mask-custom
 {
-    width: 23.5%;
-    /* margin: auto; */
-    margin-top: 10px;
-    margin-left: 15px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.247);    
 }
 
 #btnDetailProduit
@@ -83,4 +89,10 @@
 #imageProduit
 {
     max-width: 100%;
+}
+
+.rounded-pill{
+    color: white;
+    background-color: #2F7889;
+    border:  #2F7889;
 }

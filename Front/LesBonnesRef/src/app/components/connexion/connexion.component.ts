@@ -14,40 +14,7 @@ export class ConnexionComponent implements OnInit {
   {
     this.serviceUtilisateur.recuperationDeToutLesUtilisateurs();//récupération de tous les utilisateurs partie service
   }
-
-  creationUtilisateur(utilisateur:any) 
-  {
-    let tableau=this.serviceUtilisateur.UserArray._embedded.utilisateurs;// mon tableau 
-    //console.log(utilisateur.value);
-    let donneesUtilisateur = utilisateur.value;
-    donneesUtilisateur.role="vendeur"; //déclaration de mon role
-    console.log(donneesUtilisateur);
-    this.serviceUtilisateur.ajoutUtilisateur(donneesUtilisateur).subscribe(data =>
-    {
-      //réactualisation 
-      this.serviceUtilisateur.recuperationDeToutLesUtilisateurs()//récupération de tous les utilisateurs partie service
-
-      // Enregistrement des données dans sessionStorage
-      sessionStorage.setItem("object",JSON.stringify(data)); //création d'un objet
-      location.replace('http://localhost:4200/pageProduits');//envoi sur la page produit
-    })
-    
-  }
-
-  affichagePanelInscription()
-  {
-    //récupération de mes class Panel
-    let inscriptionPanel=document.getElementById("inscriptionPanel");
-    let connexionPanel=document.getElementById("connexionPanel");
-
-    //gestion de la visibilité
-    if(inscriptionPanel!=null &&connexionPanel!=null)//test de l'existance des id conreectif à " L'objet a peut-être une valeur 'null' "
-    {
-      inscriptionPanel.style.visibility="visible";
-      connexionPanel.style.visibility="collapse";
-    }
-  }
-
+  
   connexionUtilisateur(champConnexion:any)
   {
     let tableau=this.serviceUtilisateur.UserArray._embedded.utilisateurs;// mon tableau 
