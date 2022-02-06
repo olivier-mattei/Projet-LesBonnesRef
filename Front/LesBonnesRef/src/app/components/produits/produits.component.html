@@ -40,12 +40,12 @@
 <div class="container p-4" id="barreAuDessusProduit">
     <section class="row g-3">
         <!-- ************** RECHERCHE MOT CLE AVEC TWO WAY BINDING *************** -->
-        <article class="col-8 col-md-10 col-lg-10">
+        <article class="col-6 col-md-10 col-lg-10">
             <input class="btn-lg" id="rechercheProduit" type="search" name="search" [(ngModel)]="motCle"
                 (ngModelChange)="rechercheMotCle()" placeholder="rechercher un produit">
         </article>
         <!-- ******************* BOUTON VENDRE ****************** -->
-        <article class="col-4 col-md-2 col-lg-2">
+        <article class="col-6 col-md-2 col-lg-2">
             <button type="button" class="btn-lg" id="boutonVendre" data-bs-toggle="modal" data-bs-target="#ModalForm">
                 Vendre un produit </button>
         </article>
@@ -116,28 +116,26 @@
     </div>
 </div>
 <!-- ********************** FIN MODAL ********************* -->
-
-<div class="container ">
-    <section class="row">
-        <article class="col-4 col-md-4 col-lg-4 rounded cardSize"
-            *ngFor="let iter of listeDesProduits._embedded.produits"
-            [ngStyle]="{'background-color': couleurCardProduit(iter.id)}">
+<div class="container">
+    <!-- ************LISTE DE PRODUITS**************  -->
+    <section class="row g-3">
+        <!-- <article class="col-4 col-md-4 col-lg-4 rounded cardSize" -->
+        <article class="col-12 col-md-6 col-lg-3 p-2 rounded" *ngFor="let iter of listeDesProduits._embedded.produits">
             <!-- col-12 col-md-6 col-lg-4 mb-3-->
-            <div class="card spacing bg-transparent">
+            <div class="cardBorder text-light card" [ngStyle]="{'background-color': couleurCardProduit(iter.id)}">
                 <!--création de notre card -->
-                <img src={{iter.imageProduit}} class="img-fluid rounded-start" alt="image du produits">
-                <section class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">{{iter.nomProduits}}</h5>
-                        <p class="card-text">{{iter.detaille}}</p>
-                         <button class="far fa-eye" id="btnDetailProduit" (click)="recuperationDesData(iter)"
-                            data-bs-toggle="modal" data-bs-target="#PopupDetaileProduit"> </button>
-                    </div>
-                </section>
+                <img src={{iter.imageProduit}} class="cardBorder img-fluid m-3" alt="image du produits">
+                <div class="card-body marginCard mask-custom cardBorder">
+                    <h5 class="card-title">{{iter.nomProduits}}</h5>
+                    <p class="card-text rounded">{{iter.detaille | slice:0:100}}(...)</p>
+                    <button class="text-light float-end" id="btnDetailProduit" (click)="recuperationDesData(iter)"
+                        data-bs-toggle="modal" data-bs-target="#PopupDetaileProduit"><i
+                            class="bi bi-search fa-lg"></i></button>
+                </div>
             </div>
         </article>
-    </section>
-
+    </section> <!-- ************ FIN LISTE DE PRODUITS**************  -->
+    <!-- ************** MODAL DETAILLE DE PRODUIT ******************** -->
     <div class="modal" id="PopupDetaileProduit" tabindex="-1">
         <div class="modal-dialog modal-lg" id="detailProduit">
             <div class="modal-content">
@@ -199,13 +197,11 @@
 
 </div>
 
-<nav class="container p-4">
-    <ul class="pagination">
-        <li class="page-item">
-            <button (click)="affichageProduit()" class="page-link">1</button>
-        </li>
-        <li class="page-item">
-            <button  (click)="deuxiemePage()" class="page-link">2</button>
+<!-- *********** PAGINATION ******** -->
+<nav class="container">
+    <ul class="pagination justify-content-center">
+        <li class="page-item p-1" *ngFor="let n of nombrePage let i=index">
+            <a type="button" class="rounded-pill page-link" (click)="navigationPages(i,$event)">{{i+1}}</a>
         </li>
     </ul>
 </nav>

@@ -9,6 +9,7 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 import { FormsModule } from '@angular/forms';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { PanierComponent } from './components/panier/panier.component';
+import { InscriptionComponent } from './components/inscription/inscription.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PanierComponent } from './components/panier/panier.component';
     ProduitsComponent,
     AccueilComponent,
     ConnexionComponent,
-    PanierComponent
+    PanierComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,

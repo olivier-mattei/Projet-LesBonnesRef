@@ -1,29 +1,53 @@
+.tailleContainerFirst{
+	align-items: center;
+	justify-content: center;
+	margin-top: 250px;
+	background: #93A9B4;
+	border-radius: 25px;
+}
+
+.tailleContainerConnexion{
+	display: flex;
+	justify-content: center;
+	width: 230px;
+	height: 50px;
+	margin-top: 30px;
+}
+
+.panel{
+	border-radius: 25px;
+
+}
+
 .centered-form{
 	margin-top: 200px;
 }
 
 .centered-form .panel{
-	background: #2A3C44;
+	background: #30444E;
 	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
 }
 
 .centered-form .panel-heading{
-	background: #2A3C44;
+	border-radius: 25px;
+	background: #30444E;
 	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
 }
 
 .valueColorIns::content{
+	border-radius: 25px;
+
 	color:white;
-    background-color: #30444E;
+    background-color: #2A3C44;
 	
 }
 
-#inscriptionPanel
-{
-    visibility: collapse;
+.btnValiderConnexion{
+	padding: 8px 40px;
+	margin-top: 20px;
 }
 
 #textInscription:hover
 {
-    color: blue;
+    color: #3ED598;
 }

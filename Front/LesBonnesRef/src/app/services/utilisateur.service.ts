@@ -27,8 +27,8 @@ export class UtilisateurService {
     this.http.get(this.url).subscribe(dataUsers => 
     {
       this.UserArray=dataUsers;
-      console.log("mon tableau utilisateur:")
-      console.log(this.UserArray);
+      // console.log("mon tableau utilisateur:")
+      // console.log(this.UserArray);
     });
 
   }
