@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Utilisateur 
@@ -38,8 +39,12 @@ public class Utilisateur
 	@Column
 	private int portefeuille;
 	
-	@OneToMany(mappedBy= "utilisateur")//j'ai ma clé étrangère stocké dans produits
+	//clé étrangère
+	@OneToMany(mappedBy= "vendeur")//j'ai ma clé étrangère stocké dans produits
 	private Collection <Produit> tableauDesProduits; //stockage de tout les produits pour l'utilisateur
+	
+	@OneToMany(mappedBy = "acheteur")
+	private Collection<Panier> panier;
 	
 	//constructeur par défault
 	public Utilisateur()
@@ -63,6 +68,18 @@ public class Utilisateur
 		this.noteVendeur = noteVendeur;
 		this.role=role;//on met en vendeur automatiquement
 		this.portefeuille= this.GenerationRandomArgent(); //appelle de ma méthode Random pour l'argent
+		
+	}
+	
+	
+	public Collection<Panier> getPanier() 
+	{
+		return panier;
+	}
+
+	public void setPanier(Collection<Panier> panier) 
+	{
+		this.panier = panier;
 	}
 	
 	//Getters and Setters
@@ -70,7 +87,6 @@ public class Utilisateur
 	{
 		return id;
 	}
-
 
 	public void setId(Long id)
 	{

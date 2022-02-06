@@ -21,26 +21,34 @@ export class ProduitsComponent implements OnInit {
   //pour la couleur des card
   compteurLigne: number = 0;
 
+  //test si connecter
+  pasConnecte:boolean=true;
+
   //pour l'affichage en detail dans le panel produit
   NomPrenomVendeur: string = "";
   hrefUtilisateur: any;
+
+  //affichage du prix total selon quantité du produit sélectionné
+  quantiteAchat:number=0;
+  prixTotalProduit:number=0;
 
   constructor(private produitService: ProduitService, private utilisateurService: UtilisateurService) { }
 
   //objet produit
   produitsModifie =
-    {
+  {
       id: 0,
       nomProduits: "",
       detaille: "",
-      prix: "",
+      prix: 0,
       categorie: "",
       marque: "",
-      imageProduit: Image, //création de mon objet de type image
+      imageProduit: String, //création de mon objet de type image
       quantite: 0,
-    }
-
-
+      quantiteDemande:0,
+      prixTotal:0,
+  }
+  
   //objet utilisateur
   utilisateurVendeur: any =
     {
@@ -54,9 +62,13 @@ export class ProduitsComponent implements OnInit {
       portefeuille: 0,
     }
 
+  //tableau par catégorie
+  categorie:string[] = ['Jardinage', 'Domestique','JeuxVideo','Livres','Vetement','Electronique','Musique','Sport'];
+
   ngOnInit(): void {
     this.affichageProduit();
     this.utilisateurService.recuperationDeToutLesUtilisateurs()//récupération de tous les utilisateurs partie service
+    this.testConnecter()//test de connection utilisateur pour affichage détail produit
   }
 
   couleurCardProduit(idCard: number) {
@@ -139,13 +151,30 @@ export class ProduitsComponent implements OnInit {
     //récupération des data du produit
     this.produitsModifie = dataProduit;//enregistrement des data produit dans une variable locale
 
+    console.clear()
+    console.log(this.produitsModifie)
     //récupération de l'url utilisateur du produit
-    this.hrefUtilisateur = dataProduit._links.utilisateur.href
+    this.hrefUtilisateur = dataProduit._links.vendeur.href
 
     //requêtes GET pour récupération des data vendeur
     this.utilisateurService.recuperationUtilisateurParUrlProduit(this.hrefUtilisateur).subscribe(dataVendeur => {
       this.utilisateurVendeur = dataVendeur;//enregistrement des data vendeur dans une variable locale
       this.NomPrenomVendeur = this.utilisateurVendeur.nom + " " + this.utilisateurVendeur.prenom;// concaténation pour récupération du nom + prenom
+      console.log("nom utilisateur");
+      console.log(this.NomPrenomVendeur);
+    })
+  }
+
+  
+  rechercheParCategorie(nbrCategorie:any)
+  {
+    let categorieChoisie =this.categorie[nbrCategorie];
+    console.log("catégorie choisie "+categorieChoisie)
+    this.produitService.rechercheParCategorie(categorieChoisie).subscribe(resultatRecherche => 
+    {
+      this.listeDesProduits = resultatRecherche; //stockage des data récupéré
+      console.log("success");
+
     })
   }
 
@@ -163,6 +192,17 @@ export class ProduitsComponent implements OnInit {
     })
   }
 
+  testConnecter()
+  {
+    ///récupération des Stockage de Session///
+    let objectSesion=JSON.parse(sessionStorage.getItem("object")||'{}')
+    let role= objectSesion.role;
+    let mail =objectSesion.mail;
+
+    //si connecter 
+    if(mail!=null&&role!=null){this.pasConnecte=false;}
+  }
+
   // affichagePages() {
   //   this.produitService.paginationProduit(this.nombreTotalPages).subscribe(data => {
   //     this.listeDesProduits = data;
@@ -171,4 +211,35 @@ export class ProduitsComponent implements OnInit {
   //   })
   // }
 
+  //////////////////////////////////////// les fonctions pour le panier///////////////////////////////////////////
+  
+  //calcul du prix selon la quantité sélectionner
+  calculPrixTotalParProduit()//calcul le prix totale selon la quantité choisie pour affichage coté HTML
+  {
+    this.prixTotalProduit=this.quantiteAchat*this.produitsModifie.prix;
+  }
+
+  //ajoute dans ma bdd le produit sélectionner 
+  ajouterProduitAuPanier()
+  {
+    this.produitsModifie.quantiteDemande=this.quantiteAchat;//sauvegarde de la quantité sélectionner
+    this.produitsModifie.prixTotal=this.prixTotalProduit;//sauvegarde du prix selon la quantité
+
+    //lecture du session storage
+    let objectSesion=JSON.parse(sessionStorage.getItem("object")||'{}')
+    console.log(objectSesion);
+
+    //ajout dans le tableau
+    this.produitService.panier.push(this.produitsModifie);
+    //console.clear();
+    console.log("tableau produit");
+    console.log(this.produitService.panier);
+
+    //envoie vers la BDD
+    // this.produitService.ajoutPanier(this.produitsModifie).subscribe(Response => 
+    // {
+    //   console.log("j'ai réussi");
+    //   //récupération de l'objet commandé et stockage dans la tableau
+    // });
+  }
 }

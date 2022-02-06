@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /* import des Liste */
@@ -24,7 +27,10 @@ public class Produit
 	private Long id;
 
 	@Column
-	private String nomProduits,detaille,prix,categorie,marque,imageProduit;
+	private String nomProduits,detaille,prix,categorie,marque;
+	
+	@Column (length=1000)
+	private String imageProduit;
 	
 	@Column
 	private int quantite;
@@ -33,8 +39,12 @@ public class Produit
 	//private List<Image> myArrayList = new ArrayList<Image>(); //tableau d'image
 	//private BufferedImage tableauImgProduit[] = new BufferedImage[3];//tableau de 3 image
 
+	//cle étrangère 
 	@ManyToOne
-	private Utilisateur utilisateur;//création de ma clé étrengère
+	private Utilisateur vendeur;//création de ma clé étrengère
+	
+	@ManyToMany
+	private List<Panier> panier = new ArrayList<>();
 	
 	//constructeur sans paramètre
 	public Produit() 
@@ -53,7 +63,7 @@ public class Produit
 		this.marque = marque;
 		this.imageProduit = imageProduit;
 		this.quantite = quantite;
-		this.utilisateur = utilisateur;
+		this.vendeur = utilisateur;
 	}
 	
 

@@ -1,0 +1,41 @@
+<div class="container">
+    <table class="table table-secondary table-hover">
+        <thead>
+        <!--nom de mes colonnes -->
+          <tr>
+            <th></th>
+            <th scope="col">Nom Produits </th>
+            <th scope="col">categorie</th>
+            <th scope="col">marque</th>
+            <th scope="col">Image du produit</th>
+            <th scope="col">quantite</th>
+            <th scope="col">prix</th>
+            <th scope="col">gestion panier</th>
+          </tr>
+        </thead>
+    
+        <!-- valeur des produit présent dans le panier-->
+        <tbody>
+          <tr *ngFor="let iter of tableauArticle; let i = index"> <!-- affichage de mon panier-->
+            <!-- affichage sous forme de tableau-->
+            <!-- affichage de mes tableau-->
+            <td>{{i}}</td>
+            <td>{{iter.nomProduits}}</td>
+            <td>{{iter.categorie}}</td>
+            <td>{{iter.marque}}</td>
+            <td class="container"><img class="imageProduit" src={{iter.imageProduit}}></td>
+            <td id="elementQuantite"> {{iter.quantiteDemande}}</td>
+              <!-- <input type="number"  min="1" max="{{iter.quantite}}"  value={{iter.quantiteDemande}} [(ngModel)]="tableauArticle.quantite" (ngModelChange)="actualisationProduit(iter.index)"></td> -->
+              <!-- <input type="number" id="quantiteChange" min="1" max="{{iter.quantite}}"  value={{iter.quantiteDemande}} onchange="this.actualisationProduit({i})"> -->
+            <td>{{iter.prixTotal}}€</td>
+          
+            <!--bouton de modification et suppression-->
+            <td>                           
+              <button class="fas fa-trash-alt boutonInvisible text-danger text-right" (click)="suppressionProduit(i)"></button>
+            </td>
+    
+          </tr>
+        </tbody>
+    
+      </table>    
+</div>

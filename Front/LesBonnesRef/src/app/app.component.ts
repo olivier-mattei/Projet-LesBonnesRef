@@ -10,7 +10,7 @@ export class AppComponent
   title = 'LesBonnesRef';
 
   //mes variables boolean
-  pasConnecter:boolean=true;
+  pasConnecte:boolean=true;
   admin:boolean=false;
   utilisateur:String="";
 
@@ -31,7 +31,7 @@ testConnecter()
   //si connecter 
   if(mail!=null&&role!=null)
   {
-    this.pasConnecter=false;//fait disparaitre la page de connection dans la NavBar
+    this.pasConnecte=false;//fait disparaitre la page de connection dans la NavBar
     if(role=="admin")//si je suis un admin
     {
       this.admin=true; //fait apparaitre la page de getionaire administrateur dans la NavBar
@@ -50,7 +50,7 @@ deconnectionUtilisateur()
   // Supprimer toutes les données de sessionStorage
   console.log("demande de deconnection");
   sessionStorage.clear();
-  location.replace('http://localhost:4200/affichage-bibliotheque');
+  location.replace('http://localhost:4200/pageProduits');
   alert("Vous êtes désormais déconnecter");
 }
 

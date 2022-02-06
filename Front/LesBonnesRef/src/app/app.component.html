@@ -21,16 +21,16 @@
     </li>
     <!-- visible que quand on est pas connecté-->
     <li class="item-nav">
-      <a class="nav-link" id="btnBoutonConnexion" routerLink="pageConnexion" *ngIf="pasConnecter">
+      <a class="nav-link" id="btnBoutonConnexion" routerLink="pageConnexion" *ngIf="pasConnecte">
         <i class="fas fa-user fa-2x"></i>
       </a>
 
         <div class="btn-group dropstart">
-          <button id="UtilisateurConnecte" type="button" class="btn btn-secondary dropdown-toggle fas fa-user fa-2x" data-bs-toggle="dropdown" aria-expanded="false" *ngIf="!pasConnecter">
+          <button id="UtilisateurConnecte" type="button" class="btn btn-secondary dropdown-toggle fas fa-user fa-2x" data-bs-toggle="dropdown" aria-expanded="false" *ngIf="!pasConnecte">
             {{utilisateur}}
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Panier</a></li>
+            <li><a class="dropdown-item" routerLink="panier">Panier</a></li>
             <li><a class="dropdown-item" (click)="deconnectionUtilisateur()">déconnexion</a></li>
           </ul>
         </div>

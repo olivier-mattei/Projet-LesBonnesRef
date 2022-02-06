@@ -1,3 +1,42 @@
+/************************************ Choix Catégories  **************************************************/
+.margetop 
+{
+    padding-top: 100px;
+}
+  
+  .choixcategories 
+  {
+      display: flex;
+      margin: auto;
+      height: 80px;
+      width: 1450px;
+      margin-bottom: 15px;
+  }
+  
+  .btncategorie 
+  {
+    display: flex;
+    margin: auto;
+    width: 165px;
+    height: 75px;
+    background: #30444E;
+    border-radius: 25px;
+    border: none; 
+  }
+  
+  .imgchoixcatégories 
+  {
+    display: flex;
+    margin: auto 10px;
+  }
+  
+  .pchoixcategories 
+  {
+    margin: auto 0;
+    font-size: 18px;
+    color: #FFF;
+  }
+
 /************************************************** barre de recherche au dessus des card produit *********************************************/
 #barreAuDessusProduit
 {

@@ -1,3 +1,42 @@
+<!-------------------------------------------------------- choix catégorie produit ------------------------------------------------------------------------>
+<div class="margetop"></div>
+<div class="choixcategories">
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(0)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/noto_potted-plant.png" alt="">
+        <p class="pchoixcategories">Jardinage</p>
+    </button>
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(1)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/flat-color-icons_home.png" alt="">
+        <p class="pchoixcategories">Domestique</p>
+    </button>
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(2)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/emojione_video-game.png" alt="">
+        <p class="pchoixcategories">Jeux vidéos</p>
+    </button>
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(3)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/emojione_blue-book.png" alt="">
+        <p class="pchoixcategories">Livres</p>
+    </button>
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(4)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/emojione-v1_t-shirt.png" alt="">
+        <p class="pchoixcategories">Vêtements</p>
+    </button>
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(5)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/noto_desktop-computer.png" alt="">
+        <p class="pchoixcategories">Electronique</p>
+    </button>
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(6)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/fxemoji_guitar.png" alt="">
+        <p class="pchoixcategories">Musique</p>
+    </button>
+    <button type="button" class="btncategorie" (click)="rechercheParCategorie(7)">
+        <img class="imgchoixcatégories" src="../../../assets/logo choix catégories/emojione_rugby-football.png" alt="">
+        <p class="pchoixcategories">Sport</p>
+    </button>
+</div>
+
+<!-- *** Fin Choix Catégories ** -->
+
 <div class="container p-4" id="barreAuDessusProduit">
     <section class="row g-3">
         <!-- ************** RECHERCHE MOT CLE AVEC TWO WAY BINDING *************** -->
@@ -62,7 +101,9 @@
                     <article class="mb-3">
                         <label class="form-label">Photo</label>
                         <br>
-                        <input type="file" id="imageProduit" name="imageProduit" accept="image/png, image/jpeg" ngModel>
+                        <!-- <input type="file" id="imageProduit" name="imageProduit" accept="image/png, image/jpeg" ngModel> -->
+                        <input type="url" class="valueColorIns form-control" id="imageProduit" name="imageProduit" ngModel required>
+
                     </article>
 
                     <div class="text-center">
@@ -105,6 +146,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <article id="coteDroitPanelVisuProduit">
+                        <img src={{produitsModifie.imageProduit}} id="imageProduit">
+                    </article>
+
                     <section id="coteGauchePanelVisuProduit">
                         <div class="input-group mb-3">
                             <!-- <a class="fas fa-user"></a> -->
@@ -116,9 +161,9 @@
                             <input name="categorieProduit" readonly class="form-control form-control-lg valueColorIns"
                                 value={{produitsModifie.categorie}}>
                         </div>
-
+                        
                         <div class="input-group mb-3">
-                            <input name="jeSaisPas" readonly class="form-control form-control-lg valueColorIns"
+                            <input name="marqueProduit" readonly class="form-control form-control-lg valueColorIns"
                                 value={{produitsModifie.marque}}>
                         </div>
 
@@ -127,18 +172,26 @@
                                 value={{produitsModifie.detaille}}></textarea>
                         </div>
 
-                    </section>
+                    <!-------------------------------------------------------- bouton visible si je suis connecté ------------------------------------------------------------------------>
+                        <div class="input-group mb-3" *ngIf="!pasConnecte">
+                            <input type="number" name="quantiteProduit" class="form-control form-control-lg valueColorIns"
+                            min="1" max="{{produitsModifie.quantite}}" value=1  [(ngModel)]="quantiteAchat" (ngModelChange)="calculPrixTotalParProduit()">
+                        </div>
 
-                    <article id="coteDroitPanelVisuProduit">
-                        <img src={{produitsModifie.imageProduit}} id="imageProduit">
-                    </article>
+                    </section>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary valueColorIns"
-                        data-bs-dismiss="modal">{{produitsModifie.prix}}€</button>
-                    <button type="button" class="btn btn-primary valueColorIns" data-bs-dismiss="modal">Ajouter au
-                        panier</button>
+                        data-bs-dismiss="modal" *ngIf="!pasConnecte">{{prixTotalProduit}}€</button> <!-- -->
+                    <button type="button" class="btn btn-primary valueColorIns" data-bs-dismiss="modal" *ngIf="!pasConnecte" (click)="ajouterProduitAuPanier()">Ajouter au panier</button>
+                    
+                    <!-------------------------------------------------------- bouton visible si je suis déconnecté ------------------------------------------------------------------------>
+
+                    <button type="button" class="btn btn-secondary valueColorIns"
+                    data-bs-dismiss="modal" *ngIf="pasConnecte">{{produitsModifie.prix}}€</button> <!-- affiche le prix pour 1 -->
+                    <button type="button" class="btn btn-primary valueColorIns" data-bs-dismiss="modal" *ngIf="pasConnecte" routerLink="/pageConnexion">Me Connecter</button> <!-- envoie vers la page connection-->
+
                 </div>
             </div>
         </div>

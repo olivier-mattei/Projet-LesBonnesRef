@@ -6,6 +6,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProduitService {
 
+  //création de mon tableau panier
+  panier = new Array();
+
   url = "http://localhost:8082/produits";
 
   constructor(private http: HttpClient) { }
@@ -34,12 +37,18 @@ export class ProduitService {
     return this.http.get(this.url + "/search/nomProduits?nomProduits=" + motCle);
   }
 
-  rechercheParCategorie(categorie: any) { //méthode rechercher produits par catergorie
+  rechercheParCategorie(categorie: any) { //méthode rechercher produits par catégorie
     return this.http.get(this.url + "/search/categorie?categorie=" + categorie);
   }
 
-  paginationProduit(page: any) {
+  paginationProduit(page: any) 
+  {
     return this.http.get(this.url + "?page=" + page + "&size=12");
+  }
+
+  ajoutCommandePanier(produit:any)
+  {
+    return this.http.post("http://localhost:8082/utilisateurs/"+2+"/panier", produit);
   }
 
 }

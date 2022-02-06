@@ -8,13 +8,15 @@ import { ProduitsComponent } from './components/produits/produits.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { FormsModule } from '@angular/forms';
 import { ConnexionComponent } from './components/connexion/connexion.component';
+import { PanierComponent } from './components/panier/panier.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProduitsComponent,
     AccueilComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    PanierComponent
   ],
   imports: [
     BrowserModule,
