@@ -147,11 +147,8 @@
 <!-- *********** PAGINATION ******** -->
 <nav class="container">
     <ul class="pagination justify-content-center">
-        <li class="page-item p-1">
-            <a (click)="affichageProduit()" type="button" type="button" class="rounded-pill page-link">1</a>
-        </li>
-        <li class="page-item p-1">
-            <a (click)="deuxiemePage()" type="button" type="button" class="rounded-pill page-link">2</a>
+        <li class="page-item p-1" *ngFor="let n of nombrePage let i=index">
+            <a type="button" class="rounded-pill page-link" (click)="navigationPages(i,$event)">{{i+1}}</a>
         </li>
     </ul>
 </nav>

@@ -12,7 +12,9 @@ export class ProduitsComponent implements OnInit {
   listeDesProduits: any;
 
   // pagination
-  nombreTotalPages: any;
+  page: number = 0;
+  nombrePage: any;
+  tousLesPages: any;
 
   // pour la recherche
   produitTrouve: any;
@@ -55,7 +57,7 @@ export class ProduitsComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.affichageProduit();
+    this.affichagePages();
     this.utilisateurService.recuperationDeToutLesUtilisateurs()//récupération de tous les utilisateurs partie service
   }
 
@@ -104,7 +106,7 @@ export class ProduitsComponent implements OnInit {
   //méthode GET affiche tout le contenu de la bdd
   affichageProduit() {
     // this.produitService.afficherProduit().subscribe(data => {
-    this.produitService.paginationProduit(0).subscribe(data => {
+    this.produitService.paginationProduit(0, 8).subscribe(data => {
       this.listeDesProduits = data;
       console.log(this.listeDesProduits);
     })
@@ -157,18 +159,22 @@ export class ProduitsComponent implements OnInit {
     })
   }
 
-  deuxiemePage() {
-    this.produitService.paginationProduit(1).subscribe(data =>{
-      this.listeDesProduits=data;
+  //méthode pour l'affichage des pages
+  affichagePages() {
+    this.produitService.paginationProduit(this.page, 8).subscribe(data => {
+      this.listeDesProduits = data;
+      this.tousLesPages = this.listeDesProduits["page"].totalPages;
+      console.log(this.tousLesPages)
+      this.nombrePage = new Array<number>(this.tousLesPages);
+      console.log(this.nombrePage);
     })
   }
 
-  // affichagePages() {
-  //   this.produitService.paginationProduit(this.nombreTotalPages).subscribe(data => {
-  //     this.listeDesProduits = data;
-  //     this.nombreTotalPages = this.listeDesProduits.page.totalPages;
-  //     console.log("nom de pages:" + this.nombreTotalPages);
-  //   })
-  // }
+  navigationPages(iter:any, event:any){
+    this.produitService.paginationProduit(iter, 8).subscribe(data=>{
+      this.listeDesProduits=data;
+    })
+
+  }
 
 }

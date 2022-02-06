@@ -38,8 +38,8 @@ export class ProduitService {
     return this.http.get(this.url + "/search/categorie?categorie=" + categorie);
   }
 
-  paginationProduit(page: any) {
-    return this.http.get(this.url + "?page=" + page + "&size=8");
+  paginationProduit(page: number, size: number) {
+    return this.http.get(this.url + "?page=" + page + "&size=" + size);
   }
 
 }
