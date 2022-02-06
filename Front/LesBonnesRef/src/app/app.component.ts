@@ -31,7 +31,7 @@ export class AppComponent {
 
     //si connecter 
     if (mail != null && role != null) {
-      this.pasConnecter = false;//fait disparaitre la page de connection dans la NavBar
+      this.pasConnecte = false;//fait disparaitre la page de connection dans la NavBar
       if (role == "admin")//si je suis un admin
       {
         this.admin = true; //fait apparaitre la page de getionaire administrateur dans la NavBar

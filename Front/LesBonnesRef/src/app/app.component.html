@@ -24,29 +24,20 @@
       <a class="nav-link" id="btnBoutonConnexion" routerLink="pageConnexion" *ngIf="pasConnecte">
         <i class="fas fa-user fa-2x"></i>
       </a>
-
-        <div class="btn-group dropstart">
-          <button id="UtilisateurConnecte" type="button" class="btn btn-secondary dropdown-toggle fas fa-user fa-2x" data-bs-toggle="dropdown" aria-expanded="false" *ngIf="!pasConnecte">
-            {{utilisateur}}
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="panier">Panier</a></li>
-            <li><a class="dropdown-item" (click)="deconnectionUtilisateur()">déconnexion</a></li>
-          </ul>
-        </div>
-
     </li>
-    <div class="btn-group dropstart">
-      <button id="UtilisateurConnecte" type="button" class="btn btn-secondary dropdown-toggle fa-2x"
-        data-bs-toggle="dropdown" aria-expanded="false" *ngIf="!pasConnecte">
-        {{utilisateur}}
-      </button>
-      <p id="porteFeuilleUtilisateur" *ngIf="!pasConnecte">{{portefeuille}}€</p>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Panier</a></li>
-        <li><a class="dropdown-item" (click)="deconnectionUtilisateur()">Déconnexion</a></li>
-      </ul>
-    </div>
+    <li class="item-nav btn-group dropstart">
+      <div class="btn-group dropstart">
+        <button id="UtilisateurConnecte" type="button" class="btn btn-secondary dropdown-toggle fa-2x"
+          data-bs-toggle="dropdown" aria-expanded="false" *ngIf="!pasConnecte">
+          {{utilisateur}} {{portefeuille}}€
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="panier">Panier</a></li>
+          <li><a class="dropdown-item" (click)="deconnectionUtilisateur()">Déconnexion</a></li>
+        </ul>
+      </div>
+  
+    </li>
 
 
   </ul>

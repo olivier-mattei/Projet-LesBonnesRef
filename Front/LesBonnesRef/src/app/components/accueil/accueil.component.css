@@ -32,6 +32,8 @@
 }
 
 .btn-accueil {
+  margin-top: 18px;
+  border: none;
   position: absolute;
   width: 340px;
   height: 75px;

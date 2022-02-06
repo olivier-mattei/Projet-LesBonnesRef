@@ -46,7 +46,7 @@
         </article>
         <!-- ******************* BOUTON VENDRE ****************** -->
         <article class="col-6 col-md-2 col-lg-2">
-            <button type="button" class="btn-lg" id="boutonVendre" data-bs-toggle="modal" data-bs-target="#ModalForm">
+            <button type="button" class="btn-lg" id="boutonVendre" data-bs-toggle="modal" data-bs-target="#ModalForm" *ngIf="!pasConnecte">
                 Vendre un produit </button>
         </article>
     </section>
