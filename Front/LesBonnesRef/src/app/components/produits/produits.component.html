@@ -124,10 +124,10 @@
             <!-- col-12 col-md-6 col-lg-4 mb-3-->
             <div class="cardBorder text-light card" [ngStyle]="{'background-color': couleurCardProduit(iter.id)}">
                 <!--création de notre card -->
-                <img src={{iter.imageProduit}} class="cardBorder img-fluid m-3" alt="image du produits">
+                <img style="height: 200px;" src={{iter.imageProduit}} class="cardBorder img-fluid m-3" alt="image du produits">
                 <div class="card-body marginCard mask-custom cardBorder">
-                    <h5 class="card-title">{{iter.nomProduits}}</h5>
-                    <p class="card-text rounded">{{iter.detaille | slice:0:100}}(...)</p>
+                    <h5 class="card-title">{{iter.nomProduits | slice:0:20}} (...)</h5>
+                    <p class="card-text rounded">{{iter.detaille | slice:0:80}}(...)</p>
                     <button class="text-light float-end" id="btnDetailProduit" (click)="recuperationDesData(iter)"
                         data-bs-toggle="modal" data-bs-target="#PopupDetaileProduit"><i
                             class="bi bi-search fa-lg"></i></button>
@@ -159,7 +159,7 @@
                             <input name="categorieProduit" readonly class="form-control form-control-lg valueColorIns"
                                 value={{produitsModifie.categorie}}>
                         </div>
-                        
+
                         <div class="input-group mb-3">
                             <input name="marqueProduit" readonly class="form-control form-control-lg valueColorIns"
                                 value={{produitsModifie.marque}}>
@@ -183,7 +183,7 @@
                     <button type="button" class="btn btn-secondary valueColorIns"
                         data-bs-dismiss="modal" *ngIf="!pasConnecte">{{prixTotalProduit}}€</button> <!-- -->
                     <button type="button" class="btn btn-primary valueColorIns" data-bs-dismiss="modal" *ngIf="!pasConnecte" (click)="ajouterProduitAuPanier()">Ajouter au panier</button>
-                    
+
                     <!-------------------------------------------------------- bouton visible si je suis déconnecté ------------------------------------------------------------------------>
 
                     <button type="button" class="btn btn-secondary valueColorIns"

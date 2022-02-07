@@ -1,10 +1,10 @@
 /************************************ Choix Catégories  **************************************************/
-.margetop 
+.margetop
 {
-    padding-top: 100px;
+    padding-top: 125px;
 }
-  
-  .choixcategories 
+
+  .choixcategories
   {
       display: flex;
       margin: auto;
@@ -12,8 +12,8 @@
       width: 1450px;
       margin-bottom: 15px;
   }
-  
-  .btncategorie 
+
+  .btncategorie
   {
     display: flex;
     margin: auto;
@@ -21,16 +21,20 @@
     height: 75px;
     background: #30444E;
     border-radius: 25px;
-    border: none; 
+    border: none;
   }
-  
-  .imgchoixcatégories 
+
+  .btncategorie:focus {
+    border: 2px solid #3ED598;
+  }
+
+  .imgchoixcatégories
   {
     display: flex;
     margin: auto 10px;
   }
-  
-  .pchoixcategories 
+
+  .pchoixcategories
   {
     margin: auto 0;
     font-size: 18px;
@@ -38,15 +42,12 @@
   }
 
 /************************************************** barre de recherche au dessus des card produit *********************************************/
-#barreAuDessusProduit
-{
-    margin-top: 5%;/*correctif de la navbar au-dessus pour écran d'ordi*/
-}
 
 #rechercheProduit
 {
     background-color: #1A282F ;
     text-decoration: greenyellow;
+    border: none;
 }
 
 #rechercheProduit::placeholder
@@ -57,6 +58,7 @@
 #boutonVendre
 {
     background-color: #3ED598;
+    border: none;
 }
 
 /*********************************************************** affichage des produits  ***********************************************************/
@@ -71,12 +73,12 @@
 .mask-custom
 {
     backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.247);    
+    background-color: rgba(0, 0, 0, 0.247);
 }
 
 #btnDetailProduit
 {
-    background: transparent; /* transparence de l'arrière plan */ 
+    background: transparent; /* transparence de l'arrière plan */
     border: none; /* transparence du contour */
 }
 
@@ -85,7 +87,7 @@
 .modal-header
 {
     background-color: #2A3C44;
-    
+
 }
 
 .modal-body
@@ -97,7 +99,7 @@
 {
 	color:white;
     background-color: #2A3C44;
-	
+
 }
 
 .modal-footer

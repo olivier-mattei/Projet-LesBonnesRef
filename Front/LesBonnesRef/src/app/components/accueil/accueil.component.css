@@ -4,7 +4,7 @@
   height: 775px;
   background: #30444E;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 125px;
 }
 
 .titre-accueil {
@@ -26,7 +26,7 @@
 
 .text-accueil {
   font-size: 30px;
-  line-height: 51px;
+  line-height: 45px;
   color: #FFF;
   text-align: center;
 }
