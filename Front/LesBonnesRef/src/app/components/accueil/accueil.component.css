@@ -65,9 +65,9 @@
 .img2 {
   position: absolute;
   width: 272.12px;
-  height: 300.12px;
+  height: 250px;
   left: 0;
-  top: 265px;
+  top: 250px;
   background: black;
   border-radius: 10px;
   border: 3px solid #FF565E;
@@ -77,9 +77,9 @@
 .img3 {
   position: absolute;
   width: 272.12px;
-  height: 96.93px;
+  height: 150px;
   left: 0;
-  top: 592px;
+  top: 525px;
   border-radius: 10px;
 }
 
@@ -90,7 +90,7 @@
   left: 290px;
   top: 0;
   border-radius: 10px;
-  border: 3px solid #69A1BA;
+  border: 3px solid #F2B200;
   box-sizing: border-box;
 }
 
@@ -115,10 +115,22 @@
 .img7 {
   position: absolute;
   width: 272.12px;
-  height: 585.07px;
+  height: 300px;
   left: 588px;
-  top: 50px;
+  top: 35px;
   border-radius: 10px;
-  border: 3px solid #F2B200;
   box-sizing: border-box;
 }
+
+.img8 {
+  position: absolute;
+  width: 272.12px;
+  height: 300px;
+  left: 588px;
+  top: 365px;
+  border-radius: 10px;
+  border: 3px solid #69A1BA;
+  box-sizing: border-box;
+}
+
+
