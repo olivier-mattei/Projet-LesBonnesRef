@@ -139,7 +139,7 @@ public class LesBonnesRefApplication implements CommandLineRunner
 		Produit produit21= new Produit(null,"The Witcher 3 : Wild Hunt - édition jeu de l'année","Dans la peau d'un tueur de monstres, The Witcher 3: Wild Hunt est un RPG en monde ouvert, dans un univers fantasy hautement scénarisé aux graphismes époustouflants où chacun de vos choix est décisif.","27","JeuxVideo","CD ProjekT RED","https://image.api.playstation.com/vulcan/img/rnd/202009/3008/bcUoQYjNbyF7kCFaWMaxxdtL.jpg",455, user1);
 		produitRepository.save(produit21);
 		
-		Produit produit22= new Produit(null,"Manette pour Xbox – Noire","Manette de jeu vidéo ergonomique avec disposition standard des boutons, y compris un nouveau bouton Partager","49,99","JeuxVideo, Electronique","Microsoft Xbox","https://m.media-amazon.com/images/I/41LO2OX6pRL._AC_.jpg",455, user1);
+		Produit produit22= new Produit(null,"Manette pour Xbox – Noire","Manette de jeu vidéo ergonomique avec disposition standard des boutons, y compris un nouveau bouton Partager","50","JeuxVideo, Electronique","Microsoft Xbox","https://m.media-amazon.com/images/I/41LO2OX6pRL._AC_.jpg",455, user1);
 		produitRepository.save(produit22);
 		
 		Produit produit23= new Produit(null,"GeForce RTX 3090 Trinity OC 24Go","Cœurs de traçage de rayons de 2e génération Cœurs de détection de 3e génération Éclairage RVB SPECTRA 2.0 Refroidissement avancé IceStorm 2.0 Contrôle actif du refroidisseur avec arrêt de ventilateur FREEZE","2790","Electronique","ZOTAC","https://h3v2h5f6.rocketcdn.me/wp-content/uploads/2021/11/nvidia-rtx-3090-ti-puce-micron.jpg",455, user2);
