@@ -26,11 +26,8 @@ public class Produit
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//incrementation de l'id
 	private Long id;
 
-	@Column
-	private String nomProduits,detaille,prix,categorie,marque;
-	
 	@Column (length=1000)
-	private String imageProduit;
+	private String nomProduits,detaille,prix,categorie,marque,imageProduit;
 	
 	@Column
 	private int quantite;
